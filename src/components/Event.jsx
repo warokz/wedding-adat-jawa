@@ -83,13 +83,13 @@ export default function Event() {
             <div style={{ flex: 1, height: 1, background: 'linear-gradient(90deg, #C9A84C, transparent)' }} />
           </div>
           <p style={{ fontFamily: 'Cormorant Garamond, serif', fontStyle: 'italic', fontSize: '1rem', color: '#F5E6C8', opacity: 0.6 }}>
-            Sabtu Legi, 14 Juni 2025 · Prambanan, Yogyakarta
+            Kamis Pahing, 14 Agustus 2026 · Prambanan, Yogyakarta
           </p>
         </motion.div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 28 }} className="event-grid">
-          <EventCard title="Akad Nikah" subtitle="Ijab Qabul" date="Sabtu Legi, 14 Juni 2025" time="08.00 – 10.00 WIB" venue="Masjid Agung Kauman" address="Jl. Kauman No.1, Yogyakarta" delay={0.2} mapUrl="https://maps.google.com/?q=Masjid+Agung+Kauman+Yogyakarta" Icon={Flower2} />
-          <EventCard title="Resepsi Pernikahan" subtitle="Tasyakuran & Pesta" date="Sabtu Legi, 14 Juni 2025" time="10.00 – 14.00 WIB" venue="Pendopo Prambanan Heritage" address="Jl. Raya Solo-Yogya Km.16, Prambanan" delay={0.4} mapUrl="https://maps.google.com/?q=Prambanan+Temple" Icon={Calendar} />
+          <EventCard title="Akad Nikah" subtitle="Ijab Qabul" date="Kamis Pahing, 14 Agustus 2026" time="08.00 – 10.00 WIB" venue="Masjid Agung Kauman" address="Jl. Kauman No.1, Yogyakarta" delay={0.2} mapUrl="https://maps.google.com/?q=Masjid+Agung+Kauman+Yogyakarta" Icon={Flower2} />
+          <EventCard title="Resepsi Pernikahan" subtitle="Tasyakuran & Pesta" date="Kamis Pahing, 14 Agustus 2026" time="10.00 – 14.00 WIB" venue="Pendopo Prambanan Heritage" address="Jl. Raya Solo-Yogya Km.16, Prambanan" delay={0.4} mapUrl="https://maps.google.com/?q=Prambanan+Temple" Icon={Calendar} />
         </div>
 
         {/* Dress code */}
