@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { Heart, AtSign } from 'lucide-react'
 import { useInView } from 'react-intersection-observer'
 
-function PersonCard({ name, fullName, parents, role, ig, delay, fromLeft }) {
+function PersonCard({ name, fullName, parents, role, ig, delay, fromLeft, photoUrl }) {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 })
   return (
     <motion.div ref={ref}
@@ -13,25 +13,111 @@ function PersonCard({ name, fullName, parents, role, ig, delay, fromLeft }) {
     >
       {/* Photo frame */}
       <div style={{ position: 'relative', marginBottom: 20 }}>
-        <div style={{ position: 'absolute', inset: -10, borderRadius: '50%', border: '1px solid rgba(201,168,76,0.25)' }} />
-        <div style={{ position: 'absolute', inset: -18, borderRadius: '50%', border: '1px solid rgba(201,168,76,0.12)' }} />
-        <div style={{
-          width: 160, height: 160, borderRadius: '50%', overflow: 'hidden',
-          border: '2px solid #C9A84C',
-          boxShadow: '0 0 28px rgba(201,168,76,0.22)',
-          background: 'linear-gradient(135deg, #2D1B00, #4A2C0A, #8B6914)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-        }}>
-          <span style={{ fontFamily: 'Playfair Display, serif', fontSize: '4rem', color: '#C9A84C', opacity: 0.5 }}>{name[0]}</span>
-        </div>
-        {/* Diamond accents */}
+        {/* Outer decorative rings */}
+        <motion.div 
+          style={{ 
+            position: 'absolute', 
+            inset: -10, 
+            borderRadius: '50%', 
+            border: '1px solid rgba(201,168,76,0.35)',
+          }}
+          animate={{ rotate: 360 }}
+          transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
+        />
+        <motion.div 
+          style={{ 
+            position: 'absolute', 
+            inset: -18, 
+            borderRadius: '50%', 
+            border: '1px solid rgba(201,168,76,0.2)',
+          }}
+          animate={{ rotate: -360 }}
+          transition={{ duration: 50, repeat: Infinity, ease: 'linear' }}
+        />
+        
+        {/* Glow effect */}
+        <motion.div
+          style={{
+            position: 'absolute',
+            inset: -25,
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(201,168,76,0.2), transparent)',
+            filter: 'blur(15px)',
+          }}
+          animate={{
+            scale: [1, 1.1, 1],
+            opacity: [0.3, 0.5, 0.3],
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+        />
+
+        {/* Photo container */}
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.3 }}
+          style={{
+            width: 180,
+            height: 180,
+            borderRadius: '50%',
+            overflow: 'hidden',
+            border: '3px solid #C9A84C',
+            boxShadow: '0 8px 32px rgba(201,168,76,0.3), inset 0 0 20px rgba(201,168,76,0.1)',
+            position: 'relative',
+          }}
+        >
+          {/* Photo */}
+          <img
+            src={photoUrl}
+            alt={name}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: 'center',
+              display: 'block',
+            }}
+          />
+          
+          {/* Overlay gradient for elegance */}
+          <div style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'radial-gradient(circle at center, transparent 40%, rgba(8,3,0,0.15) 100%)',
+            pointerEvents: 'none',
+          }} />
+        </motion.div>
+
+        {/* Diamond accents at cardinal points */}
         {[
-          { top: -4, left: '50%', transform: 'translateX(-50%) rotate(45deg)' },
-          { right: -4, top: '50%', transform: 'translateY(-50%) rotate(45deg)' },
-          { bottom: -4, left: '50%', transform: 'translateX(-50%) rotate(45deg)' },
-          { left: -4, top: '50%', transform: 'translateY(-50%) rotate(45deg)' },
+          { top: -6, left: '50%', transform: 'translateX(-50%) rotate(45deg)' },
+          { right: -6, top: '50%', transform: 'translateY(-50%) rotate(45deg)' },
+          { bottom: -6, left: '50%', transform: 'translateX(-50%) rotate(45deg)' },
+          { left: -6, top: '50%', transform: 'translateY(-50%) rotate(45deg)' },
         ].map((s, i) => (
-          <div key={i} style={{ position: 'absolute', width: 8, height: 8, background: '#C9A84C', opacity: 0.7, ...s }} />
+          <motion.div 
+            key={i} 
+            style={{ 
+              position: 'absolute', 
+              width: 10, 
+              height: 10, 
+              background: 'linear-gradient(135deg, #E8C97A, #C9A84C)',
+              boxShadow: '0 0 8px rgba(201,168,76,0.6)',
+              ...s 
+            }}
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.7, 1, 0.7],
+            }}
+            transition={{
+              duration: 2,
+              delay: i * 0.5,
+              repeat: Infinity,
+            }}
+          />
         ))}
       </div>
 
@@ -40,10 +126,28 @@ function PersonCard({ name, fullName, parents, role, ig, delay, fromLeft }) {
       <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1rem', color: '#4A2C0A', fontStyle: 'italic', opacity: 0.75, marginBottom: 6 }}>{fullName}</p>
 
       {ig && (
-        <a href={`https://instagram.com/${ig}`} target="_blank" rel="noopener noreferrer"
-          style={{ display: 'flex', alignItems: 'center', gap: 5, color: '#C9A84C', fontSize: 12, fontFamily: 'Cormorant Garamond, serif', textDecoration: 'none', marginBottom: 14 }}>
+        <motion.a 
+          href={`https://instagram.com/${ig}`} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.05, y: -2 }}
+          style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            gap: 5, 
+            color: '#C9A84C', 
+            fontSize: 12, 
+            fontFamily: 'Cormorant Garamond, serif', 
+            textDecoration: 'none', 
+            marginBottom: 14,
+            padding: '4px 12px',
+            border: '1px solid rgba(201,168,76,0.3)',
+            borderRadius: 20,
+            transition: 'all 0.3s',
+          }}
+        >
           <AtSign size={12} />@{ig}
-        </a>
+        </motion.a>
       )}
 
       <div style={{ width: 40, height: 1, background: '#C9A84C', opacity: 0.5, margin: '0 auto 14px' }} />
@@ -85,7 +189,16 @@ export default function Couple() {
           gap: 32,
           alignItems: 'center',
         }} className="couple-grid">
-          <PersonCard name="Arjuna" fullName="Raden Arjuna Wibisono" parents="Bapak Haryanto & Ibu Sulistyowati" role="MEMPELAI PRIA" ig="arjuna.wibisono" delay={0.2} fromLeft />
+          <PersonCard 
+            name="Arjuna" 
+            fullName="Raden Arjuna Wibisono" 
+            parents="Bapak Haryanto & Ibu Sulistyowati" 
+            role="MEMPELAI PRIA" 
+            ig="arjuna.wibisono" 
+            delay={0.2} 
+            fromLeft 
+            photoUrl="/cowojawa.jpg"
+          />
 
           {/* Center */}
           <motion.div initial={{ opacity: 0, scale: 0 }} animate={inView ? { opacity: 1, scale: 1 } : {}}
@@ -99,12 +212,20 @@ export default function Couple() {
             <div style={{ textAlign: 'center' }}>
               <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 10, letterSpacing: '0.3em', color: '#4A2C0A' }}>BERSATU DALAM</p>
               <p style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.2rem', color: '#C9A84C' }}>Ikatan Suci</p>
-              <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 11, color: '#4A2C0A', opacity: 0.6, fontStyle: 'italic' }}>14 Juni 2025</p>
+              <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 11, color: '#4A2C0A', opacity: 0.6, fontStyle: 'italic' }}>14 Agustus 2026</p>
             </div>
             <div style={{ width: 1, height: 60, background: 'linear-gradient(to top, transparent, #C9A84C)' }} />
           </motion.div>
 
-          <PersonCard name="Srikandi" fullName="Dewi Srikandi Rahayu" parents="Bapak Bambang Susilo & Ibu Endang Pertiwi" role="MEMPELAI WANITA" ig="srikandi.rahayu" delay={0.4} />
+          <PersonCard 
+            name="Srikandi" 
+            fullName="Dewi Srikandi Rahayu" 
+            parents="Bapak Bambang Susilo & Ibu Endang Pertiwi" 
+            role="MEMPELAI WANITA" 
+            ig="srikandi.rahayu" 
+            delay={0.4} 
+            photoUrl="/cewe jawa.jpg"
+          />
         </div>
 
         {/* Quote */}

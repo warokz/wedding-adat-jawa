@@ -90,6 +90,48 @@ body {
   from { stroke-dashoffset: 1000; }
   to   { stroke-dashoffset: 0; }
 }
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1) rotate(180deg); }
+}
+@keyframes ripple {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-60px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(60px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes goldRain {
+  0% { transform: translateY(-100%) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 0.8; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+@keyframes textReveal {
+  from { opacity: 0; transform: translateY(20px); filter: blur(10px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+@keyframes borderGlow {
+  0%, 100% { box-shadow: 0 0 10px rgba(201,168,76,0.3), inset 0 0 10px rgba(201,168,76,0.1); }
+  50% { box-shadow: 0 0 30px rgba(201,168,76,0.6), inset 0 0 20px rgba(201,168,76,0.2); }
+}
+@keyframes diamondSpin {
+  from { transform: rotate(0deg) scale(1); }
+  to { transform: rotate(360deg) scale(1.2); }
+}
+@keyframes luxuryPulse {
+  0%, 100% { transform: scale(1); filter: brightness(1); }
+  50% { transform: scale(1.05); filter: brightness(1.2); }
+}
 
 /* ── Utility ── */
 .batik-overlay {
@@ -103,10 +145,59 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: goldShimmer 5s linear infinite;
+  filter: drop-shadow(0 2px 8px rgba(201,168,76,0.4));
 }
 .glow-border { animation: glowPulse 2.5s ease-in-out infinite; }
 .float-anim  { animation: floatY 4s ease-in-out infinite; }
 .breathe-anim { animation: breathe 3s ease-in-out infinite; }
+.luxury-card {
+  background: linear-gradient(135deg, rgba(253,246,227,0.05), rgba(201,168,76,0.08));
+  border: 2px solid rgba(201,168,76,0.3);
+  box-shadow: 0 8px 32px rgba(201,168,76,0.15), inset 0 1px 0 rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.luxury-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 16px 48px rgba(201,168,76,0.3), inset 0 1px 0 rgba(255,255,255,0.2);
+  border-color: rgba(201,168,76,0.6);
+}
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #1a0d00 0%, #2D1B00 25%, #3d2200 50%, #2D1B00 75%, #1a0d00 100%);
+  position: relative;
+}
+.gold-gradient-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(201,168,76,0.1) 0%, transparent 50%),
+              radial-gradient(circle at 70% 50%, rgba(232,201,122,0.08) 0%, transparent 50%);
+  animation: breathe 8s ease-in-out infinite;
+}
+.shimmer-line {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer-line::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  animation: shimmerSweep 3s ease-in-out infinite;
+}
+.text-luxury {
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3), 0 0 20px rgba(201,168,76,0.2);
+  letter-spacing: 0.05em;
+}
+.border-luxury {
+  border: 2px solid transparent;
+  background: linear-gradient(#0a0400, #0a0400) padding-box,
+              linear-gradient(135deg, #C9A84C, #E8C97A, #C9A84C) border-box;
+  animation: borderGlow 3s ease-in-out infinite;
+}
 
 /* ── 3D Door ── */
 .door-scene {
