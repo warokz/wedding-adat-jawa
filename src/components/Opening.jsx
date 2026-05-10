@@ -92,7 +92,7 @@ export default function Opening({ onOpen }) {
       >
         {/* Background image */}
         <img
-          src="/couple.jpg"
+          src="/couple1.jpg"
           alt="Mempelai"
           style={{
             position: 'absolute', inset: 0,
@@ -154,7 +154,7 @@ export default function Opening({ onOpen }) {
       <CornerSvg style={{ position: 'absolute', bottom: 6, left: 6, transform: 'scaleY(-1)' }} />
       <CornerSvg style={{ position: 'absolute', bottom: 6, right: 6, transform: 'scale(-1)' }} />
 
-      {/* TOP CONTENT */}
+      {/* TOP CONTENT - Bismillah & Names */}
       <div style={{ position: 'absolute', top: 0, left: 0, right: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '28px 24px 0' }}>
         <motion.div
           initial={{ opacity: 0, y: -24 }}
@@ -182,26 +182,12 @@ export default function Opening({ onOpen }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1 }}
-            style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 11, letterSpacing: '0.5em', color: '#C9A84C', marginTop: 6 }}
+            style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 11, letterSpacing: '0.5em', color: '#C9A84C', marginTop: 6, marginBottom: 32 }}
           >
             UNDANGAN PERNIKAHAN
           </motion.p>
-        </motion.div>
-      </div>
 
-      {/* BOTTOM CONTENT */}
-      <div style={{
-        position: 'absolute', bottom: 0, left: 0, right: 0,
-        display: 'flex', flexDirection: 'column', alignItems: 'center',
-        padding: '0 24px 28px',
-      }}>
-        <motion.div
-          style={{ textAlign: 'center', width: '100%', maxWidth: 480 }}
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-        >
-          {/* Names */}
+          {/* Names - Moved to top */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -210,7 +196,7 @@ export default function Opening({ onOpen }) {
           >
             <h1 className="gold-shimmer-text" style={{
               fontFamily: 'Playfair Display, serif',
-              fontSize: 'clamp(3rem, 12vw, 5.5rem)',
+              fontSize: 'clamp(2.5rem, 10vw, 4.5rem)',
               lineHeight: 1,
               filter: 'drop-shadow(0 4px 16px rgba(201,168,76,0.4))',
             }}>
@@ -231,14 +217,28 @@ export default function Opening({ onOpen }) {
 
             <h1 className="gold-shimmer-text" style={{
               fontFamily: 'Playfair Display, serif',
-              fontSize: 'clamp(3rem, 12vw, 5.5rem)',
+              fontSize: 'clamp(2.5rem, 10vw, 4.5rem)',
               lineHeight: 1,
               filter: 'drop-shadow(0 4px 16px rgba(201,168,76,0.4))',
             }}>
               Srikandi
             </h1>
           </motion.div>
+        </motion.div>
+      </div>
 
+      {/* BOTTOM CONTENT - Date & Button Only */}
+      <div style={{
+        position: 'absolute', bottom: 0, left: 0, right: 0,
+        display: 'flex', flexDirection: 'column', alignItems: 'center',
+        padding: '0 24px 28px',
+      }}>
+        <motion.div
+          style={{ textAlign: 'center', width: '100%', maxWidth: 480 }}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.9, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+        >
           {/* Date */}
           <motion.div
             initial={{ opacity: 0 }}
