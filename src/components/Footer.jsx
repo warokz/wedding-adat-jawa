@@ -275,72 +275,7 @@ export default function Footer() {
               borderTop: '1px solid rgba(201,168,76,0.15)',
             }}
           >
-            <p style={{ 
-              fontFamily: 'Cormorant Garamond, serif', 
-              fontSize: 10, 
-              letterSpacing: '0.3em', 
-              color: '#C9A84C', 
-              opacity: 0.5,
-              marginBottom: 12,
-            }}>
-              CRAFTED WITH LOVE BY
-            </p>
             
-            <motion.a
-              href="https://github.com/MuhYuusron"
-              target="_blank"
-              rel="noopener noreferrer"
-              onMouseEnter={() => setHoverDev(true)}
-              onMouseLeave={() => setHoverDev(false)}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 10,
-                padding: '12px 24px',
-                border: hoverDev ? '1px solid rgba(201,168,76,0.6)' : '1px solid rgba(201,168,76,0.3)',
-                background: hoverDev 
-                  ? 'linear-gradient(135deg, rgba(201,168,76,0.15), rgba(232,201,122,0.1))' 
-                  : 'rgba(201,168,76,0.05)',
-                textDecoration: 'none',
-                transition: 'all 0.3s',
-                position: 'relative',
-                overflow: 'hidden',
-              }}
-            >
-              {/* Shimmer effect on hover */}
-              {hoverDev && (
-                <motion.div
-                  style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: '-100%',
-                    width: '100%',
-                    height: '100%',
-                    background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)',
-                  }}
-                  animate={{ left: ['100%', '100%'] }}
-                  transition={{ duration: 0.6 }}
-                />
-              )}
-              
-              <Code size={16} color="#C9A84C" />
-              <span style={{
-                fontFamily: 'Playfair Display, serif',
-                fontSize: '1.1rem',
-                background: 'linear-gradient(135deg, #C9A84C, #E8C97A, #C9A84C)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                fontWeight: 600,
-                letterSpacing: '0.1em',
-              }}>
-                KyyusDev
-              </span>
-              <Star size={14} color="#C9A84C" fill={hoverDev ? '#C9A84C' : 'none'} />
-            </motion.a>
-
             <p style={{ 
               fontFamily: 'Cormorant Garamond, serif', 
               fontStyle: 'italic',
@@ -362,7 +297,7 @@ export default function Footer() {
             opacity: 0.2, 
             marginTop: 32 
           }}>
-            © 2026 ARJUNA & SRIKANDI
+            © 2026 ADITYA & RIZKA
           </p>
         </motion.div>
       </div>
