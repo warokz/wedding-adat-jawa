@@ -85,7 +85,7 @@ export default function Countdown() {
           </div>
 
           <p style={{ fontFamily: 'Cormorant Garamond, serif', fontStyle: 'italic', fontSize: '1rem', color: '#4A2C0A', opacity: 0.55, marginTop: 28 }}>
-            Kamis Pahing, 14 Agustus 2026 · Prambanan, Yogyakarta
+            Sabtu Wage, 28 November 2026 · Bekasi, Jawa Barat
           </p>
         </motion.div>
       </div>
