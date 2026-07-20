@@ -190,11 +190,11 @@ export default function Couple() {
           alignItems: 'center',
         }} className="couple-grid">
           <PersonCard 
-            name="Arjuna" 
-            fullName="Raden Arjuna Wibisono" 
-            parents="Bapak Haryanto & Ibu Sulistyowati" 
+            name="Aditya" 
+            fullName="Aditya Nanda Saputra" 
+            parents="Bapak Marwoto & Ibu Maryati" 
             role="MEMPELAI PRIA" 
-            ig="arjuna.wibisono" 
+            ig="adityans_id" 
             delay={0.2} 
             fromLeft 
             photoUrl="/cowojawa.jpg"
@@ -218,11 +218,11 @@ export default function Couple() {
           </motion.div>
 
           <PersonCard 
-            name="Srikandi" 
-            fullName="Dewi Srikandi Rahayu" 
-            parents="Bapak Bambang Susilo & Ibu Endang Pertiwi" 
+            name="Rizka" 
+            fullName="Rizka Aprillianti" 
+            parents="Bapak Heri Miswanto & Ibu Suparyanti" 
             role="MEMPELAI WANITA" 
-            ig="srikandi.rahayu" 
+            ig="rizkaaprillianti05" 
             delay={0.4} 
             photoUrl="/cewe jawa.jpg"
           />
@@ -237,7 +237,7 @@ export default function Couple() {
             <div style={{ flex: 1, height: 1, background: 'linear-gradient(90deg, #C9A84C, transparent)' }} />
           </div>
           <p style={{ fontFamily: 'Cormorant Garamond, serif', fontStyle: 'italic', fontSize: '1rem', color: '#4A2C0A', lineHeight: 1.7, opacity: 0.8 }}>
-            Bertemu di Prambanan, jatuh cinta di bawah sinar bulan purnama, dan kini bersatu selamanya dalam ikatan pernikahan yang suci.
+            Bertemu di Pramuka, jatuh cinta di bawah sinar bulan purnama, dan kini bersatu selamanya dalam ikatan pernikahan yang suci.
           </p>
         </motion.div>
       </div>
